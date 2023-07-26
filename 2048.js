@@ -71,6 +71,10 @@ document.addEventListener("keyup", (e) => {
     {
         slideUp();
     }
+    else if (e.code == "ArrowDown")
+    {
+        slideDown();
+    }
 })
 
 function filterZero(row)
@@ -124,7 +128,7 @@ function slideRight()
     {
         let row = board[r];
         row.reverse();
-        row = slide(row, true);
+        row = slide(row);
         row.reverse();
         board[r] = row;
 
@@ -138,19 +142,36 @@ function slideRight()
     }
 }
 
-function slideUp()
+function slideUp() 
 {
     for (let c = 0; c < columns; c++)
     {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
         row = slide(row);
-        board[0][c] = rows[0];
-        board[1][c] = rows[1];
-        board[2][c] = rows[2];
-        board[3][c] = rows[3];
 
         for (let r = 0; r < rows; r++)
         {
+            board[r][c] = row[r];
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let num = board[r][c];
+    
+            updateTile(tile, num);
+        }
+    }
+}
+
+function slideDown() 
+{
+    for (let c = 0; c < columns; c++)
+    {
+        let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
+        row.reverse();
+        row = slide(row);
+        row.reverse();
+        
+        for (let r = 0; r < rows; r++)
+        {
+            board[r][c] = row[r];
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
     
