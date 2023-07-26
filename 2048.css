@@ -1,0 +1,102 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    background: #41295a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #250635, #2b1d3a);
+    background: linear-gradient(to right, #14031d, #2e1e3f);
+
+}
+
+hr {
+    width: 500px;
+}
+
+#board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(146, 118, 86);
+    border: 5px solid rgb(87, 65, 56);
+    margin: 0 auto;
+}
+
+.tile {
+    width: 90px;
+    height: 90px;
+
+    border: 5px solid rgb(87, 65, 56);
+    background-color: rgb(219, 204, 175);
+    display: flex;
+    font-size: 35px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.x2 {
+    background-color: #EEE4DA;
+    color: rgb(87, 65, 56);
+}
+
+.x4 {
+    background-color: #EDE0C8;
+    color: rgb(87, 65, 56);
+}
+
+.x8 {
+    background-color: #F2B179;
+    color: rgb(255, 255, 255);
+}
+
+.x16 {
+    background-color: #F59563;
+    color: rgb(255, 255, 255);
+}
+
+.x32 {
+    background-color: #F67C5F;
+    color: rgb(255, 255, 255);
+}
+
+.x64 {
+    background-color: #F65E3B;
+    color: rgb(255, 255, 255);
+}
+
+.x128 {
+    background-color: #EDCF72;
+    color: rgb(255, 255, 255);
+}
+
+.x256 {
+    background-color: #EDCC61;
+    color: rgb(255, 255, 255);
+}
+
+.x512 {
+    background-color: #EDC850;
+    color: rgb(255, 255, 255);
+}
+
+.x1024 {
+    background-color: #EDC53F;
+    color: rgb(255, 255, 255);
+}
+
+.x2048 {
+    background-color: #EDC22E;
+    color: rgb(255, 255, 255);
+}
+
+.x4096 {
+    background-color: #3E8C86;
+    color: rgb(255, 255, 255);
+}
+
+.x8192 {
+    background-color: #155E63;
+    color: rgb(255, 255, 255);
+}
