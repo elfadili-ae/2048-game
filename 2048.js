@@ -10,17 +10,11 @@ window.onload = () => {
 
 function setGame()
 {
-    /*board = [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-    ];*/
     board = [
-        [2, 2, 2, 2],
-        [2, 2, 2, 2],
-        [4, 4, 8, 8],
-        [4, 4, 8, 8],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
     ];
 
     for (let r = 0; r < rows; r++)
@@ -36,6 +30,9 @@ function setGame()
             document.getElementById("board").append(tile);
         }
     }
+
+    fillTile();
+    fillTile();
 }
 
 function updateTile(tile, tileNum)
@@ -62,20 +59,59 @@ document.addEventListener("keyup", (e) => {
     if (e.code == "ArrowLeft")
     {
         slideLeft();
+        fillTile();
     }
     else if (e.code == "ArrowRight")
     {
         slideRight();
+        fillTile();
     }
     else if (e.code == "ArrowUp")
     {
         slideUp();
+        fillTile();
     }
     else if (e.code == "ArrowDown")
     {
         slideDown();
+        fillTile();
     }
+    document.getElementById("score").innerText = score.toString();
 })
+
+function checkEmpty()
+{
+    for (let r = 0; r < rows; r++)
+    {
+        for (let c = 0; c < columns; c++)
+        {
+            if (board[r][c] == 0)
+                return true;
+        }
+    }
+    return false;
+}
+
+function fillTile()
+{
+    if (!checkEmpty())
+        return;
+
+    let found = false;
+    while (!found)
+    {
+        let r = Math.floor(Math.random() * 4);
+        let c = Math.floor(Math.random() * 4);
+        if (board[r][c] == 0)
+        {
+            board[r][c] = 2;
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            updateTile(tile, board[r][c]);
+            
+            found = true;
+        }
+    }
+}
 
 function filterZero(row)
 {
